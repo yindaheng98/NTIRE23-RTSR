@@ -44,7 +44,11 @@ def main(args):
     """
     LOAD MODEL
     """
+    '''
     model = models.__dict__[args.model_name](args.scale)
+    '''
+    model_path = os.path.join(args.checkpoint)
+    model = torch.load(model_path)
     model.eval()
     for k, v in model.named_parameters():
         v.requires_grad = False
@@ -115,6 +119,7 @@ if __name__ == "__main__":
     # specify submission
     parser.add_argument("--submission-id", type=str)
     parser.add_argument("--model-name", type=str, choices=["swin2sr", "imdn", "rfdn", "rtsrn"])
+    parser.add_argument("--checkpoint", type=str, required=True)
 
     # specify dirs
     parser.add_argument("--save-dir", type=str, default="internal")

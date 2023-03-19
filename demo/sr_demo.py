@@ -43,10 +43,14 @@ def main(args):
     LOAD MODEL
     """
     if not args.bicubic:
+        '''
         model = models.__dict__[args.model_name]()
         if args.checkpoint is not None:
             model_path = os.path.join(args.checkpoint)
             model.load_state_dict(torch.load(model_path), strict=True)
+        '''
+        model_path = os.path.join(args.checkpoint)
+        model = torch.load(model_path)
         model.eval()
         for k, v in model.named_parameters():
             v.requires_grad = False
@@ -98,7 +102,7 @@ if __name__ == "__main__":
     # specify submission
     parser.add_argument("--submission-id", type=str)
     parser.add_argument("--model-name", type=str, choices=["swin2sr", "imdn", "rfdn"])
-    parser.add_argument("--checkpoint", type=str, default=None)
+    parser.add_argument("--checkpoint", type=str, required=True)
     
     # specify dirs
     parser.add_argument("--lr-dir", type=str)
