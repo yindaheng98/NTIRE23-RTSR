@@ -4,4 +4,4 @@ from models.rfdn_half.RFDNB4S import RFDNB4S_P
 
 
 def srmodel():
-    return torch.load("PRFDN_x2.pth")
+    return torch.load("PRFDN_x3.pth")
