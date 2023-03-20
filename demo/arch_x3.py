@@ -1,7 +1,7 @@
 import torch
 
 """
-!!!Important!!!
+To organizers:
 The structure of our model is in demo/utils/models.
 Since applied auto-pruning our model, models in .pth file have same structure of the models in demo/utils/models,
 but have different shape of weights.
