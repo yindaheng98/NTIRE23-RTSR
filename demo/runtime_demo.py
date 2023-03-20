@@ -6,7 +6,7 @@ import logging
 import argparse
 import numpy as np
 import torch.nn.functional as F
-import torch_tensorrt
+# import torch_tensorrt
 
 from tqdm import tqdm
 from collections import OrderedDict

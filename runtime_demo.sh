@@ -5,5 +5,9 @@ conda activate NTIRE23
 ROOT=$(dirname $0)
 mkdir -p ./results
 
-CUDA_VISIBLE_DEVICES=0 python demo/runtime_demo.py --submission-id SEU_CNII --checkpoint /home/data/NTIRE2022_ESR/save_models/RFDN_-10_trainLSDIRX2_Param0.27M/model/model_latest.pt.pth --scale 2
-CUDA_VISIBLE_DEVICES=0 python demo/runtime_demo.py --submission-id SEU_CNII --checkpoint /home/data/NTIRE2022_ESR/save_models/RFDN_-10_trainLSDIRX3_Param0.27M/model/model_latest.pt.pth --scale 3
+CUDA_VISIBLE_DEVICES=0 python demo/runtime_demo.py --submission-id SEU_CNII \
+  --checkpoint demo/PRFDN_x2.pth \
+  --scale 2
+CUDA_VISIBLE_DEVICES=0 python demo/runtime_demo.py --submission-id SEU_CNII \
+  --checkpoint demo/PRFDN_x3.pth \
+  --scale 3
